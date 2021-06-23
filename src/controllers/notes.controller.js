@@ -1,4 +1,4 @@
-import Note from "../models/Note";
+import Note from "../models/Note.js";
 
 export const renderNoteForm = (req, res) => {
   res.render("notes/new-note");

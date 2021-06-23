@@ -9,6 +9,7 @@
     "build": "babel src -d dist",
     "copyfiles": "ncp src/views dist/views && npc src/public dist/public"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "express-handlebars": "^5.2.1",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
+    "module_name": "^1.0.0",
     "mongoose": "^5.12.0",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",

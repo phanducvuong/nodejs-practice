@@ -8,13 +8,13 @@ import passport from "passport";
 import morgan from "morgan";
 import MongoStore from "connect-mongo";
 
-import { createAdminUser } from "./libs/createUser";
-import config from "./config";
+import { createAdminUser } from "./libs/createUser.js";
+import config from "./config.js";
 
-import indexRoutes from "./routes/index.routes";
-import notesRoutes from "./routes/notes.routes";
-import userRoutes from "./routes/users.routes";
-import "./config/passport";
+import indexRoutes from "./routes/index.routes.js";
+import notesRoutes from "./routes/notes.routes.js";
+import userRoutes from "./routes/users.routes.js";
+import "./config/passport.js";
 
 // Initializations
 const app = express();
@@ -22,7 +22,7 @@ createAdminUser();
 
 // settings
 app.set("port", config.PORT);
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(path.dirname(new URL(import.meta.url).pathname), "views"));
 app.engine(
   ".hbs",
   exphbs({
@@ -65,7 +65,7 @@ app.use(userRoutes);
 app.use(notesRoutes);
 
 // static files
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(path.dirname(new URL(import.meta.url).pathname), "public")));
 
 app.use((req, res) => {
   res.render("404");
